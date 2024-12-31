@@ -1,13 +1,24 @@
-import { Text, TouchableOpacity } from "react-native";
+import { 
+    Text, 
+    TouchableOpacity,
+} from "react-native";
 import { Button_Style } from "../styles/AppStyles";
 
-type T_NumberButton = {
+interface I_NumberButton {
     textContent: string;
 };
 
-const NumberButton = ({ textContent }: T_NumberButton)=>{
+const NumberButton = ({ textContent }: I_NumberButton)=>{
+    
+    function press(value: string){
+        console.log(value);
+    }
+
     return (
-        <TouchableOpacity style={Button_Style.itemButton}>
+        <TouchableOpacity 
+            style={Button_Style.itemButton}
+            onPress={ ()=> press(textContent) }
+        >
             <Text style={Button_Style.buttonNumber}>
                 { textContent }
             </Text>
